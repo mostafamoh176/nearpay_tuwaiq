@@ -572,14 +572,13 @@ class NearPayImpl {
 
       print("Starting purchase transaction with connected terminal...");
       onStatusUpdate?.call("Starting transaction...");
-//28885c93-84f4-412d-88ca-0246622a2ffd
-// 28885c93-82f4-412d-88ca-0246692a3ffd
+
       final completer = Completer<NearPayResult>();
       await _connectedTerminal!.purchase(
         amount: amountInCents,
         scheme: scheme,
         customerReferenceNumber: customerReferenceNumber ?? "",
-        transactionUuid: "28885c93-82f4-412d-88ca-0246692a3ffd",
+        transactionUuid: transactionUuid,
         callbacks: PurchaseCallbacks(
           cardReaderCallbacks: CardReaderCallbacks(
             onReadingStarted: () {
